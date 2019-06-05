@@ -15,6 +15,7 @@ addons:
 
 image: node:latest
 
+
 before_script:
      - cd untitled1
      - npm install --silent
