@@ -13,14 +13,10 @@ addons:
       - google-chrome-stable
 
 
-image: node:latest
-
-
 before_script:
-     - cd untitled1
-     - npm install --silent
-mabuild:
-         stage: build
-     script:
-         - cd untitled1
-         - npm run build --prod
+  - cd untitled1
+  - npm install --silent
+
+script:
+  - cd untitled1
+  - npm run build --prod
