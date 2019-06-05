@@ -1,0 +1,56 @@
+<h1>Comment réaliser une PWA en Angular ?</h1>
+
+<p>Afin de répondre à cette question, il faut d'abord savoir si vous partez d'un projet déjà existant en Angular</p>
+
+
+<h2>Votre projet n'existe pas encore ?</h2>
+
+<p>Rien de plus simple ! Si vous considérez créer un site avec une version récente d'Angular ( Elle doit être supérieur ou égale à la version 6)</p>
+<p>Il vous suffit de simplement, après la création de votre projet ( ng new monprojet ), d'aller dans ce projet en invtie de commade et de taper la commande suivante "ng add @angular/pwa" une fois le projet créé</p>
+<p>Et voilà ! Votre PWA est créé !</p>
+
+<p>(Side note) Si votre version d'Angular est en 7.X, une manipulation supplémentaire est potentiellement nécessaire, le service worker ne s'enregistrant pas toujours bien</p>
+<p>Il est parfois nécessaire de changer une ligne dans le main.ts comme suit :</p>
+<![CDATA[
+platformBrowserDynamic().bootstrapModule(AppModule).then(() => {
+  if ('serviceWorker' in navigator && environment.production) {
+navigator.serviceWorker.register('./ngsw-worker.js');
+}
+}).catch(err => console.log(err));
+]]>
+<h2>Votre site existe déjà en Angular mais sa version est inférieur à la 6ème ?</h2>
+
+<p>Encore une fois, tout dépend de sa version. Si votre version d'angular est la 5.X, vous êtes chanceux ! C'est à partir de cette version qu'Angular a facilité la création des PWA dans son langage.</p>
+
+<h3>Les PWA en Angular 5.X</h3>
+
+<p>Il vous suffit de faire la commande "ng add service-worker" à l'intérieur de votre projet</p>
+<p>Grâce à cette commmande, votre site possèdera un service-worker ( indispensable a votre PWA comme vu dans la première partie )</p>
+<p>Il vous restera a créer un fichier manifest.json ainsi qu'un fichier "ngsw-config.json" et votre site sera enfin une PWA</p>
+
+
+
+<h2>C'est vraiment tout ce qu'il faut pour avoir une PWA ?</h2>
+
+<p>Oui... Et non.</p>
+<p>En terme de programmation, effectivement, celà s'arrête là pour l'initialisation !</p>
+<p>Cependant, afin que votre PWA fonctionne totalement il faut qu'elle soit servit en https et build d'une certaine façon</p>
+
+<h2>Build et servir une PWA en Angular.</h2>
+
+<p>Concernant la façon spécifique pour build votre projet, vous serez obliger de compiler en mode "production", puisque le service-worker ne peut pas fonctionner sur votre application si cette dernière n'est pas en mode "développement"</p>
+<p>Afin de compiler votre application en mode production, rien de plus simple !</p>
+<p>Il vous suffit d'ouvrir la console à la racine de votre projet et de taper la ligne suivante "ng build --prod" et voilà !</p>
+
+<h2>"Et si je veux tester ma PWA sans avoir accès a un certificat pour avoir un lien HTTPS ?"</h2>
+
+<p>Pour ma part, j'utilise deux package à télécharger avec npm qui sont http-server et ngrok</p>
+<p>Il vous suffit de :</p>
+<ul>
+  <li>Build votre projet en production</li>
+  <li>Puis exécuter la commande suivante : http-server -p "port" -c-1 dist/"nom_de_projet"</li>
+  <li>Enfin, exécutez la commande suivante : ngrok "port_du_http-server" http</li>
+</ul>
+
+<p>Suivez ensuite le lien donné par votre console, rajoutez "https://" au début du lien...</p>
+<p>Félicitation, votre PWA est disponible en https et accessible par vos autres appareils pour tester les différentes fonctionnalités !</p>

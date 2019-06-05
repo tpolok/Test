@@ -1,0 +1,34 @@
+<h1>Les désavantages d'une PWA</h1>
+
+<p>Bien que les avantages soient multiples, les désavantages le sont aussi</p>
+
+<h2>Impossible de crypter les données pour le mode offline</h2>
+
+<p>En effet, il est impossible de crypter les données pour le mode offline</p>
+<p>Il faut donc que les données soient potentiellement visible aux yeux de tous ( la base de donnée étant visible via l'outil de développement de GooGle Chrome )</p>
+<p>L'impossibilité de crypter les données vient du fait qu'il st impossible de décrypter les données crypter sans exposer la clé de décryptement ( rendant tout le processus de crypage inutile</p>
+<p>Il faut donc que les données ne soient pas sensibles ou de tout simplement interdire l'accès à la page en question lors du mode hors ligne</p>
+<p>La connexion à un compte est donc rendu difficile, puisqu'il est inconcevable de stocker en claire le mot de passe de l'utilisateur</p>
+
+<h2>Obligation d'homogénéité</h2>
+
+<p>Ce qui est disponible en ligne l'est théoriquemet aussi hors ligne.</p>
+<p>Cependant, nous voulons parfois implémenter une feature qui sera disponible uniquement sur le site web et non sur l'application mobile</p>
+<p>Cette chose implique donc des traitements supplémentaires si la nécessité de faire cela</p>
+<p>Tel que rendre invisible le lien pour y accéder en mode hors ligne ainsi que d'y interdire l'accès si la ersonne essaye de forcer</p>
+
+<h2>Un cout d'évolution potentiellement plus élevé</h2>
+
+<p>Imaginez le scénario suivant : </p>
+<p>Votre PWA est opérationnel, votre client en est content mais vous demande une évolution.</p>
+<p>Vous acceptez et commencez le développement.</p>
+<p>Le fait de rendre cette evolution totalement responsive et suivre les paradigmes des PWA peut vite devenir un enfer</p>
+<p>Si votre client demande par exemple de pouvoir prendre en photo des aliments si le client est sur mobile et uniquement si il est en ligne</p>
+<p>Cela vous fait un double traitement puisqu'il faut bien vérifier que la personne est bien sur mobile ( et possède donc une caméra ) ainsi qu'un accès a internet</p>
+<p>Si votre site était dissocié de l'application mobile, le traitement aurait éé beaucoup plus simple !</p>
+
+<h2>Une non utilisation du store possiblement dérangeante</h2>
+
+<p>Ne pas passer par le store peut être un avantage en soit comme un désavantage.</p>
+<p>En effet, même si ne pas passer par le store peut être bénéfique économiquement parlant, ne pas l'utiliser peut freiner la découverte de la solution par de nouveaux utilisateurs, ce dernier n'étant pa référencé par une application tierce</p>
+
