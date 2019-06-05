@@ -16,7 +16,7 @@ addons:
 image: node:latest 
 cache:
 	paths:
-      	- node_modules/ 
+    - node_modules/
 before_script:
      - cd untitled1
      - npm install --silent
