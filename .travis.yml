@@ -1,0 +1,14 @@
+
+
+image: node:latest 
+cache:
+	paths:
+      	- node_modules/ 
+before_script:
+     - cd untitled1
+     - npm install --silent
+mabuild:
+         stage: build
+     script:
+         - cd untitled1
+         - npm run build --prod
